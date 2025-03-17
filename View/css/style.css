@@ -1,0 +1,665 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+ 
+/* ====================   
+      Root Variables         
+   ==================== */
+
+:root {
+    /* Color Variables */ 
+    --main-color: #e9911f;
+    --text-color: #a6a6a6;
+    --black-color: #000000;
+    --white-color: #ffffff; 
+
+    /* Font Variables */
+    --bg-font: "Playfair Display", serif;
+
+    /* Transition and Animation Variables */
+    --transition-duration: 0.3s;
+    --transition-speed: 0.5s;
+
+    /* Layout Variables */
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ====================   
+      Global Styles         
+   ==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: var(--bg-font);
+}
+
+body {
+    background: url(../images/bg.png) no-repeat center/cover;
+    color: var(--black-color);
+    width: 100%;
+    height: 100vh;
+}
+
+/* ====================   
+      Book Now Button         
+   ==================== */
+
+.book-now {
+    background: var(--main-color);
+    color: var(--white-color);
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 2px solid #d27b1f;
+}
+
+.book-now::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+}
+
+.book-now:hover {
+    background: #b5651d;  
+}
+
+.book-now i{
+    font-size: 18px;
+    color: var(--main-color);
+    background-color: var(--white-color);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==================== 
+        Coupon btn   
+   ==================== */
+ 
+
+   .get-coupon-btn {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color var(--transition-duration) ease;
+    margin-top: 10px;
+    display: inline-block;
+    transition: all 0.5s ease;
+}
+
+.get-coupon-btn:hover {
+    background-color: #b5651d;
+    transform: translateY(-5px);
+}
+  
+/* ====================   
+      NAVBAR STYLES          
+   ==================== */
+   .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    background: var(--white-color);
+    box-shadow: var(--box-shadow);
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;  
+}
+
+.logo {
+    z-index: 1001;
+}
+
+.logo img {
+    width: 80px;
+}
+ 
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--black-color);
+}
+
+.nav-links a:hover {
+    color: var(--main-color);
+}
+
+.cart {
+    position: relative;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.cart span {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: var(--main-color);
+    color: var(--white-color);
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
+/* ==================== 
+  NAVBAR MOBILE RESPONSIVE    
+   ==================== */
+@media(max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--white-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        transition: top var(--transition-speed) ease-in-out;
+    }
+
+    .nav-links.active {
+        top: 0;
+    }
+
+    .nav-links a {
+        font-size: 28px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+/* ==================== 
+  Hero Section Styles    
+   ==================== */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 100px 10% 50px;
+    align-items: center;
+}
+
+/* ==================== 
+       Hero TEXT  
+   ==================== */
+.hero-text {
+    text-align: left; 
+    font-family: serif;
+    color: var(--primary-color);
+    max-width: 40%;
+    flex: 1;
+}
+ 
+.hero-text h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: -30px;
+}
+
+.hero-text h1 {
+    font-size: 5.5rem;
+    font-weight: bold;
+}
+
+.hero-text .highlight {
+    color: var(--main-color);
+}
+
+.hero-text .number {
+    font-size: 8rem;
+    color: var(--text-color);
+}
+
+.hero-text p {
+    font-size: 1rem;
+    color: var(--text-color);
+    max-width: 500px;
+}
+
+.pricing-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.pricing {
+    display: flex;
+    flex-direction: column;
+}
+
+.original-price {
+    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: line-through;
+    margin-bottom: 5px;
+}
+
+.discounted-price{
+   font-size: 1.8rem;
+   font-weight: bold; 
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    margin-left: -300px;
+
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--main-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #b5651d;
+}
+/* ==================== 
+        Hero Image   
+   ==================== */ 
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 60%;
+    flex: 1;
+}
+ 
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==================== 
+       Coupon Card   
+   ==================== */  
+.coupon-card {
+    position: absolute;
+    bottom: -120px;
+    right: -50px;
+    width: 400px;
+    height: auto;
+    background: rgba(255, 255, 155, 0.2);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    border: 2px dashed var(--white-color);
+    backdrop-filter: blur(32px);
+    animation: float 6s ease-in-out infinite;
+    overflow: hidden;
+}
+
+@keyframes float{
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.coupon-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--black-color);
+    margin-bottom: 10px;
+    border-bottom: 2px dashed var(--white-color);
+    padding-bottom: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.coupon-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.coupon-image {
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid var(--black-color);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 10px;
+}
+
+.coupon-details {
+    flex-grow: 1;
+    margin-left: 15px;
+    min-height: 60px;
+}
+
+.coupon-details h3 {
+    font-size: 15px;
+    color: var(--black-color);
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 14px;
+    color: var(--text-color);
+    text-decoration: line-through;
+    margin-bottom: 5px;
+}
+
+.discounted-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.coupon-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.coupon-navigation button {
+    color: var(--black-color);
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    font-size: 24px;
+}
+
+.coupon-navigation button:hover {
+    color: var(--white-color);
+}
+
+/* ==================== 
+    1350px RESPONSIVE    
+   ==================== */
+   @media (max-width: 1350px) {
+    .hero-text{
+        max-width: 40%;
+    }
+    
+    .hero-text .highlight,
+    .hero-text .number {
+        font-size: 5rem;
+    }
+
+    .social-icons { 
+        margin-left: -210px;
+    }
+
+    .hero-img img {
+        width: 100%;
+    }
+
+    .coupon-card {
+        width: 400px;
+        right: -40px;
+    }
+}
+   
+/* ==================== 
+      1200px RESPONSIVE    
+   ==================== */
+@media (max-width: 1200px) {
+    .hero-text{
+        max-width: 40%;
+    }
+
+    .hero-text .highlight,
+    .hero-text .number {
+        font-size: 5rem;
+    }
+
+    .social-icons { 
+        margin-left: -190px;
+    }
+
+    .hero-img img {
+        width: 100%;
+    }
+
+    .coupon-card {
+        width: 350px;
+        right: -40px;
+    }
+}
+/* ==================== 
+     992px RESPONSIVE    
+   ==================== */
+@media (max-width: 992px) {
+    .hero {
+        padding: 100px 6% 50px;
+    }
+
+    .hero-text{
+        max-width: 40%;
+    }
+
+    .hero-text .highlight,
+    .hero-text .number {
+        font-size: 4.2rem;
+    }
+
+    .book-now{ 
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .social-icons { 
+        margin-left: -100px;
+        font-size: 18px;
+    }
+
+    .hero-img{
+        max-width: 60%;
+    }
+
+    .coupon-card {
+        width: 360px;
+        right: -30px;
+    }
+
+    .coupon-header {
+        font-size: 14px;
+    }
+
+    .coupon-details h3 {
+        font-size: 12px;
+    }
+
+    .coupon-details .discounted-price {
+        font-size: 18px;
+    }
+    
+    .get-coupon-btn { 
+        padding: 5px 10px; 
+        font-size: 10px;   
+        margin-top: 10px; 
+    } 
+}
+/* ==================== 
+       768px RESPONSIVE    
+   ==================== */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        margin-bottom: 30px;
+        max-width: 60%;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-text .highlight,
+    .hero-text .number {
+        font-size: 5rem;
+    } 
+
+    .hero-image{
+        max-width: 100%;
+    }
+
+    .pricing-container {
+        flex-direction: column;
+        align-items: center; 
+    } 
+
+    .social-icons { 
+        margin-left: 10px;
+        font-size: 14px;
+    }
+ 
+    .hero-img {
+        max-width: 80%;
+    } 
+
+    .coupon-card {
+        width: 350px;
+        right: -20px;
+        bottom: -80px;
+    }
+
+    .coupon-header {
+        font-size: 14px;
+    }
+
+    .coupon-details h3 {
+        font-size: 13px;
+    }
+
+    .coupon-details .discounted-price {
+        font-size: 16px;
+    }
+
+    .coupon-image {
+        width: 50px;
+        height: 50px;
+    } 
+    .coupon-navigation button {
+        font-size: 12px;
+    }
+}
+/* ==================== 
+       576px RESPONSIVE    
+   ==================== */
+@media (max-width: 576px) {
+    .hero-text{
+        max-width: 80%;
+    } 
+
+    .hero-text .highlight,
+    .hero-text .number {
+        font-size: 4rem;
+    }
+
+    .hero-text p {
+        font-size: .8rem;
+    } 
+    
+    .hero-img{
+        max-width: 100%;
+    }
+
+    .coupon-card {
+        width: 90%;  
+        right: 5%; 
+        bottom: -60px;
+        padding: 15px;  
+    }
+
+    .coupon-header {
+        font-size: 12px;
+    }
+
+    .coupon-details h3 {
+        font-size: 12px;
+    }
+
+    .coupon-details .discounted-price {
+        font-size: 14px;
+    }
+
+    .coupon-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .get-coupon-btn {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+    .coupon-navigation button {
+        font-size: 15px;
+    }
+}
