@@ -16,7 +16,7 @@ session_start();
     <link rel="stylesheet" href="View/css/style.css">
     <link rel="stylesheet" href="View/css/login.css">
     <link rel="stylesheet" href="View/css/products.css">
-    
+    <link rel="stylesheet" href="View/css/admin.css">
      
     <!-- ===== AOS Animation Library ===== -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -28,19 +28,19 @@ session_start();
 </head>
 <body>
      <!-- ===== Navbar Section ===== -->
-
      <nav class="navbar">
         <div class="logo">
             <img src="View/images/logo.png" alt="Logo">
         </div>
         <div class="nav-links" id="navLinks">
-            <a href="index.php?act=home">Trang chủ</a>
             <?php 
                     if(!isset($_SESSION['login'])){
-                        echo '<a href="index.php?act=login">Đăng nhập</a>';
+                        echo '
+                            <a href="index.php?act=home">Trang chủ</a>
+                            <a href="index.php?act=products">Sản phẩm</a>
+                            <a href="index.php?act=login">Đăng nhập</a>';
                     }else {
-                        echo '<a href="index.php?act=products">Sản phẩm</a>
-                        <a href="#">Đặt hàng</a>';
+                        echo '<a href="index.php?act=adminPage">Quản trị</a>';
                     }
             ?>
         </div>
@@ -63,6 +63,7 @@ session_start();
                 case 'login': include("View/login.php"); break;
                 case 'logout': include("View/logout.php"); break;
                 case 'products': include("View/products.php"); break;
+                case 'adminPage': include("View/admin.php"); break;
                 default: include("View/home.php"); break;
             }
         }

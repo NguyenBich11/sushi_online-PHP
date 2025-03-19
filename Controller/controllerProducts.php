@@ -23,5 +23,17 @@ include_once("Model/modelProducts.php");
                 return null;
             }
         }
+
+        public function cSearch($prodcutSearch) {
+            $contentSearch = strtolower($prodcutSearch);
+            $p = new modelProducts();
+            $tblProduct = $p->mSearch($contentSearch);
+
+            if($tblProduct) {
+                return $tblProduct;
+            }else {
+                return null;
+            }
+        }
     }
 ?>

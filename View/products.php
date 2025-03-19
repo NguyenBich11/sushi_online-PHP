@@ -19,35 +19,55 @@
         </ul>
     </div>
 
-    <div class="product-list">
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
-            <button onclick="searchProducts()">Tìm kiếm</button>
-        </div>
-
+    <div class="product-list" id="productGrid">
+        <form method="get" name="formSearch" class="search-bar">
+            <input type="hidden" name="act" value="products">
+            <input type="text" name="txtSearch" placeholder="Nhập sản phẩm muốn tìm kiếm">
+            <input type="submit" name="btnSearch" class="input-search" value="Tìm kiếm">
+        </form>
         <div class="product-grid" id="productGrid">
-            <?php 
+            <?php
                 include_once("Controller/controllerProducts.php");
-
                 $p = new controllerProducts();
+            
+                // Nếu có từ khóa tìm kiếm -> Chỉ hiển thị kết quả tìm kiếm
+                if (isset($_GET['txtSearch']) && !empty($_GET['txtSearch'])) {
+                    $keyword = $_GET['txtSearch'];
+                    $rs = $p->cSearch($keyword);
+                    
+                    if ($rs->num_rows > 0) {
+                        while ($row = $rs->fetch_assoc()) {
+                            echo "<div class=\"product-item\">
+                                    <img src=".$row['productimage']." alt=\"Sushi\">
+                                    <h4>".$row['productname']."</h4>
+                                    <p>Giá: ".$row['productprice']."</p>
+                                    <button>Mua ngay</button>
+                                </div>";
+                        }
+                    } else {
+                        echo "<p>Không tìm thấy sản phẩm.</p>";
+                    }
+                    exit(); // Dừng script để tránh hiển thị toàn bộ sản phẩm
+                }
+            
+                // Nếu không có tìm kiếm, hiển thị danh sách sản phẩm như bình thường
                 $typeOfID = isset($_GET['type']) ? $_GET['type'] : 0;
-
                 $rs = $p->cGetAllProducts($typeOfID);
-
-                if($rs) {
-                    while($row = $rs->fetch_assoc()) {
+            
+                if ($rs->num_rows > 0) {
+                    while ($row = $rs->fetch_assoc()) {
                         echo "<div class=\"product-item\">
                                 <img src=".$row['productimage']." alt=\"Sushi\">
                                 <h4>".$row['productname']."</h4>
                                 <p>Giá: ".$row['productprice']."</p>
                                 <button>Mua ngay</button>
-                            </div>
-                        ";
+                            </div>";
                     }
-                }else {
-                    echo '<p>Không có sản phẩm.</p>';
+                } else {
+                    echo "<p>Không có sản phẩm.</p>";
                 }
-            ?> 
+            ?>
         </div>
     </div>
 </div>
+<script src="View/js/search.js"></script>

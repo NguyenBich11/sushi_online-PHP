@@ -36,5 +36,16 @@
                 }
             }
         }
+
+        public function cGetAllProducts(){
+            $p = new modelUser();
+            $tblProduct = $p->mGetAllProducts();
+
+            if($tblProduct) {
+                return $tblProduct;
+            }else {
+                return null;
+            }
+        }
     }
 ?>

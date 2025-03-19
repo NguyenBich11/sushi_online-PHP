@@ -2,7 +2,7 @@
 include_once("modelConnect.php");
 
     class modelProducts{
-        public function mGetAllProducts($typeid) {
+        public function mGetAllProducts($typeid = null) {
             $p = new modelConnect();
             $connect = $p->mOpenConnect();
 
@@ -10,13 +10,24 @@ include_once("modelConnect.php");
                 return null; //không thể kết nói database
             }
 
-            $selectSQL = "SELECT * FROM product WHERE typeOfProduct = $typeid;";
-            $tblProduct = $connect->query($selectSQL);
-
-            if($tblProduct->num_rows > 0) {
-                return $tblProduct; //có dữ liệu
+            if($typeid) {
+                $selectSQL = "SELECT * FROM product WHERE typeOfProduct = $typeid;";
+                $tblProduct = $connect->query($selectSQL);
+    
+                if($tblProduct->num_rows > 0) {
+                    return $tblProduct; //có dữ liệu
+                }else {
+                    return null; //không có dữ liệu
+                }
             }else {
-                return null; //không có dữ liệu
+                $selectSQL = "SELECT * FROM product";
+                $tblProduct = $connect->query($selectSQL);
+    
+                if($tblProduct->num_rows > 0) {
+                    return $tblProduct; //có dữ liệu
+                }else {
+                    return null; //không có dữ liệu
+                }
             }
 
             $connect->mClose($connect);
@@ -40,6 +51,24 @@ include_once("modelConnect.php");
             }
 
             $connect->mClose($connect);
+        }
+
+        public function mSearch($prodcutSearch) {
+            $p = new modelConnect();
+            $conn = $p->mOpenConnect();
+
+            if($conn) {
+                $selectSQL = "SELECT * FROM `product` WHERE productname LIKE LOWER('%$prodcutSearch%');";
+                $tblProduct = $conn->query($selectSQL);
+
+                if($tblProduct->num_rows > 0) {
+                    return $tblProduct;
+                }else {
+                    return null;
+                }
+            }else {
+                return null;
+            }
         }
     }
 ?>

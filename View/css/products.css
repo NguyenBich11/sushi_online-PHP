@@ -65,7 +65,7 @@
     border-radius: 5px;
 }
 
-.search-bar button {
+.search-bar .input-search {
     padding: 8px 12px;
     background-color: var(--main-color);
     color: white;

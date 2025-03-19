@@ -43,5 +43,25 @@
 
             $conn->mClose($conn);
         }
+
+        public function mGetAllProducts() {
+            $p = new modelConnect();
+            $conn = $p->mOpenConnect();
+
+            if($conn) {
+                $selectSQL = "SELECT * FROM product";
+                $tblProduct = $conn->query($selectSQL);
+
+                if($tblProduct->num_rows > 0) {
+                    return $tblProduct;
+                }else {
+                    return null;
+                }
+            }else {
+                return null;
+            }
+
+            $conn->mClose($conn);
+        }
     }
 ?>
