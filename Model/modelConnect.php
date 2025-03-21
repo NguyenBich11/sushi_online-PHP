@@ -1,10 +1,10 @@
 <?php 
     class modelConnect{
         public function mOpenConnect() {
-            $host = 'localhost';
-            $username = 'sushi_project';
-            $password = 'ngocbich2004';
-            $db = 'sushi_project';
+            $host = '';
+            $username = '';
+            $password = '';
+            $db = '';
 
             return mysqli_connect($host, $username, $password, $db);
         }

@@ -37,10 +37,12 @@
                     
                     if ($rs->num_rows > 0) {
                         while ($row = $rs->fetch_assoc()) {
+                            $price = number_format($row['productprice']);
+
                             echo "<div class=\"product-item\">
                                     <img src=".$row['productimage']." alt=\"Sushi\">
                                     <h4>".$row['productname']."</h4>
-                                    <p>Giá: ".$row['productprice']."</p>
+                                    <p>Giá: ".$price." VNĐ</p>
                                     <button>Mua ngay</button>
                                 </div>";
                         }
@@ -56,10 +58,12 @@
             
                 if ($rs->num_rows > 0) {
                     while ($row = $rs->fetch_assoc()) {
+                        $price = number_format($row['productprice']);
+
                         echo "<div class=\"product-item\">
                                 <img src=".$row['productimage']." alt=\"Sushi\">
                                 <h4>".$row['productname']."</h4>
-                                <p>Giá: ".$row['productprice']."</p>
+                                <p>Giá: ".$price." VNĐ</p>
                                 <button>Mua ngay</button>
                             </div>";
                     }

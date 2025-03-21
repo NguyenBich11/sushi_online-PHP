@@ -9,8 +9,8 @@
         </p>
         <div class="pricing-container">
             <div class="pricing">
-                <span class="original-price" data-aos="fade-right">$9.40</span>
-                <span class="discounted-price" data-aos="zoom-out-up">$7.90</span>
+                <span class="original-price" data-aos="fade-right">190.000 VNĐ</span>
+                <span class="discounted-price" data-aos="zoom-out-up">130.000 VNĐ</span>
             </div>
             <button class="book-now" data-aos="flip-left">
                 <i class="ri-shopping-bag-2-line"></i>Mua ngay
@@ -26,17 +26,17 @@
     </div>
 
     <div class="hero-image">
-        <img src="images/hero.png" alt="Image" data-aos="fade-left">
+        <img src="View/images/hero.png" alt="Image" data-aos="fade-left">
         <div class="coupon-card" id="coupon-card">
-            <div class="coupon-header">Exclusive offer!</div>
+            <div class="coupon-header">Uưu đãi độc quyền!</div>
             <div class="coupon-content">
                 <div class="coupon-image"></div>
                     <div class="coupon-details">
-                        <h3>Fried Fish</h3>
-                        <div class="price">$25.44</div>
-                        <div class="discounted-price">$19.99</div>
+                        <h3>Cá chiên</h3>
+                        <div class="price">250.000 VNĐ</div>
+                        <div class="discounted-price">150.000 VNĐ</div>
                     </div>
-                    <a href="#" class="get-coupon-btn">Get Coupon</a>
+                    <a href="#" class="get-coupon-btn">Phiếu giảm giá</a>
             </div>
             <div class="coupon-navigation">
                 <button id="prev-btn"><i class="ri-arrow-left-line"></i></button>

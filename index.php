@@ -1,6 +1,7 @@
 <?php 
 session_start();
-// ob_start();
+ob_start();
+error_reporting(1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +52,7 @@ session_start();
                 }
             ?>
         </div>
-        <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="menu-toggle"">
             <i class="ri-menu-3-fill"></i>
         </div>
     </nav>

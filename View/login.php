@@ -43,7 +43,6 @@
 <script src="View/js/login.js"></script>
 <?php 
 if (isset($_POST['login'])) {
-    echo "<script>alert('test')</script>";
     include("Controller/controllerUser.php");
     
     $p = new controllerUser();
