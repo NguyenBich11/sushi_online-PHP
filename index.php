@@ -1,6 +1,6 @@
 <?php 
 session_start();
-ob_start();
+// ob_start();
 error_reporting(1);
 ?>
 <!DOCTYPE html>

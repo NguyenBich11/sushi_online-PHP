@@ -2,7 +2,7 @@
     <div class="sidebar">
         <h3>Danh mục</h3>
         <ul>
-            <li><a href="index.php?act=adminPage">Xem danh sách sản phẩm</a></li>
+            <li class="category active"><a href="index.php?act=adminPage">Xem danh sách sản phẩm</a></li>
             
         </ul>
     </div>

@@ -4,13 +4,14 @@
         <ul>
             <?php 
                 include_once("Controller/controllerProducts.php");
+                echo '<li class="category"><a href="index.php?act=products">Tất cả</a></li>';
 
                 $p = new controllerProducts();
                 $rows = $p->cGetTypeOfProduct();
 
                 if($rows) {
                     while($row = $rows->fetch_assoc()) {
-                        echo '<li><a href="index.php?act=products&type='.$row['typeid'].'">'.$row['typename'].'</a></li>';
+                        echo '<li class="category"><a href="index.php?act=products&type='.$row['typeid'].'">'.$row['typename'].'</a></li>';
                     }
                 }else {
                     echo '<li>Không có danh mục nào.</li>';
@@ -74,4 +75,17 @@
         </div>
     </div>
 </div>
-<script src="View/js/search.js"></script>
+<script>
+    // Lấy tham số 'type' từ URL
+    const params = new URLSearchParams(window.location.search);
+    const currentType = params.get('type'); // Lấy giá trị type từ URL
+
+    // Duyệt qua tất cả danh mục
+    document.querySelectorAll(".category a").forEach(link => {
+        const linkType = new URL(link.href).searchParams.get('type'); // Lấy type của từng danh mục
+        
+        if (linkType === currentType) {
+            link.parentElement.classList.add("active"); // Thêm class active vào thẻ <li>
+        }
+    });
+</script>
